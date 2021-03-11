@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.LoginActivity"
+    android:background="#2E2F33">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/passwordText"
+            android:layout_width="316dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="47dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="41dp"
+            android:background="@drawable/login_bg"
+            android:drawableLeft="@drawable/ic_lock_open_black_24dp"
+            android:drawablePadding="7dp"
+            android:inputType="textPassword"
+            android:paddingLeft="26dp"
+            app:layout_constraintBottom_toTopOf="@+id/loginButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idText" />
+
+        <EditText
+            android:id="@+id/idText"
+            android:layout_width="316dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="47dp"
+            android:layout_marginTop="245dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/login_bg"
+            android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
+            android:drawablePadding="7dp"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="26dp"
+            app:layout_constraintBottom_toTopOf="@+id/passwordText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainText" />
+
+        <TextView
+            android:id="@+id/mainText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="146dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="모두의 자전거"
+            android:textColor="#FFFFFF"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toTopOf="@+id/idText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="316dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="47dp"
+            android:layout_marginTop="41dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="130dp"
+            android:background="@drawable/login_button"
+            android:elevation="10dp"
+            android:text="@string/sign_in"
+            android:textAppearance="@style/sign_in"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordText" />
+
+        <TextView
+            android:id="@+id/textView_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="173dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="170dp"
+            android:layout_marginBottom="66dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/sign_up_now"
+            android:textAppearance="@style/sign_up_now"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
