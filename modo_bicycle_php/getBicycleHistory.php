@@ -37,7 +37,7 @@ if ($bicycleNumber != "" ){
                 'useTime'=>$row["useTime"],
                 'useDistance'=>$row["useDistance"]
           ));
-      }
+      } 
 
       if (!$android) {
           echo "<pre>";
