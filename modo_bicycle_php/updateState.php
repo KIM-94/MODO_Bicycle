@@ -16,7 +16,7 @@
 
     if(!isset($errMSG)) // 이름과 나라 모두 입력이 되었다면
     {
-      if($Check == "rental"){
+      if($Check == "rental"){ 
 
         try{
             // SQL문을 실행하여 데이터를 MySQL 서버의 person 테이블에 저장합니다.
