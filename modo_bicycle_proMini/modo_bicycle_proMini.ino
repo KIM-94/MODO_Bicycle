@@ -1,11 +1,10 @@
 #include <SoftwareSerial.h>
-
 #include<Servo.h>
 
 Servo servo;
 int value = 0;
 
-int servoPin = 9;
+int servoPin = 10;
 
 SoftwareSerial BlueToothSerial(2, 3);
 String myString=""; //받는 문자열
@@ -15,8 +14,13 @@ String ARDUINO_LOCK = "lock\n";
 
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(9600);
-  BlueToothSerial.begin(9600);
+  Serial.begin(115200);
+  BlueToothSerial.begin(115200);
+
+  pinMode(8, OUTPUT);
+  pinMode(9, OUTPUT);
+  digitalWrite(8, LOW);
+  digitalWrite(9, LOW);
 }
 
 void loop() {
@@ -30,27 +34,30 @@ void loop() {
   if(!myString.equals(""))  //myString 값이 있다면
   {
     Serial.print("input value: "+myString); //시리얼모니터에 myString값 출력
-  
+
       if(myString.equals(ARDUINO_CONNECT))  //myString 값이 'on' 이라면
       {
-        //digitalWrite(11, HIGH); //LED ON
+        digitalWrite(8, HIGH);
+        digitalWrite(9, LOW);
         Serial.println("input Connect OK"); //시리얼모니터에 myString값 출력
         delay(10);
-        //BlueToothSerial.print(ANDROID_CONNECT); //시리얼모니터에 myString값 출력
-        //delay(10);
+        BlueToothSerial.write("inputConnectOK"); //시리얼모니터에 myString값 출력
+        delay(10);
         servo_OFF();
-        
+
       } else if(myString.equals(ARDUINO_LOCK)) {
-        //digitalWrite(11, LOW);  //LED OFF
+        digitalWrite(8, LOW);
+        digitalWrite(9, HIGH);
         Serial.println("input Lock OK"); //시리얼모니터에 myString값 출력
+        BlueToothSerial.write("input Lock OK");
         delay(10);
         servo_ON();
       }
-      
-      servo.write(value); 
+
+      servo.write(value);
       myString="";  //myString 변수값 초기화   //입력된 문자열 없애고 초기화하여 문자열 입력대기
   }
-  
+
 }
 
 void servo_ON(){
