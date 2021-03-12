@@ -22,4 +22,4 @@
 <?php
     if (isset($errMSG)) echo $errMSG;
     if (isset($successMSG)) echo $successMSG;
-?>
+?> 
