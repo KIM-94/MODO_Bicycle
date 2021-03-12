@@ -37,15 +37,10 @@
 
 
 ## 📸 SCREENSHOTS
-<!-- <img src="C:/Users/KIM/AndroidStudioProjects/portfolio/github_test/새 폴더/MODO_Bicycle/img/img1.jpg" width="250"/> <img src="https://firebasestorage.googleapis.com/v0/b/portfolio-app-147b5.appspot.com/o/screenshots%2Fportfolio1.0%2Fs-02.png?alt=media&token=f9c780f4-c054-453e-b6e6-094d15637a49" width="250"/> <img src="https://firebasestorage.googleapis.com/v0/b/portfolio-app-147b5.appspot.com/o/screenshots%2Fportfolio1.0%2Fs-03.png?alt=media&token=5ccdc32b-916e-4ddc-a701-b8a3bb7c523c" width="250"/>
-<img src="https://firebasestorage.googleapis.com/v0/b/portfolio-app-147b5.appspot.com/o/screenshots%2Fportfolio1.0%2Fs-04.png?alt=media&token=e53147bb-d135-4335-a170-33adbbc4518b" width="250"/> <img src="https://firebasestorage.googleapis.com/v0/b/portfolio-app-147b5.appspot.com/o/screenshots%2Fportfolio1.0%2Fs-05.png?alt=media&token=ced44065-15bd-4bf2-90b5-2ff4ce9d217f" width="250"/> <img src="https://firebasestorage.googleapis.com/v0/b/portfolio-app-147b5.appspot.com/o/screenshots%2Fportfolio1.0%2Fs-06.png?alt=media&token=dfcba3f7-613e-42a7-b4e5-98baa5d75c64" width="250"/> -->
-
-<img width="250" src="/img/img1.jpg"/> <img width="250" src="/img/img2.jpg"/> <img width="250" src="/img/img3.jpg"/>
+<img width="250" src="/img/img1.jpg"/> <img width="250" src="/img/img3.jpg"/> <img width="250" src="/img/img2.jpg"/>
 <img width="250" src="/img/img4.jpg"/> <img width="250" src="/img/img5.jpg"/> <img width="250" src="/img/img6.jpg"/>
 
 
-## 📐 ARCHITECTURE (Model View Controller)
-<img src="https://firebasestorage.googleapis.com/v0/b/portfolio-app-147b5.appspot.com/o/screenshots%2Fportfolio1.0%2Fmvc.png?alt=media&token=6ce5b072-a5e9-4c64-bf5a-662ba0935be7"/>
-
-
+## 📐 ARCHITECTURE
+<img src="/img/img10.jpg"/>
 
