@@ -17,5 +17,5 @@ for($i = 0 ; $i < count($chatlist_jsonlist) ; $i++){
 
   //테스트 출력
   echo $member_nm."/".$chatmsg."/".$msg_timestamp;
-}
+} 
 ?>

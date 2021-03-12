@@ -1,9 +1,9 @@
-<?php 
+<?php
 $json = '{
     "title": "PHP",
     "site": "GeeksforGeeks"
 }';
-
+ 
 $json2  = '{
     "webnautes": [
         {
