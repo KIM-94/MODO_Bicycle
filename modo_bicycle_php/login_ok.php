@@ -24,5 +24,5 @@
 			$arr["success"] = "-1";
 		}
 	}
-	echo json_encode($arr,JSON_PRETTY_PRINT+JSON_UNESCAPED_UNICODE);
+	echo json_encode($arr,JSON_PRETTY_PRINT+JSON_UNESCAPED_UNICODE); 
 ?>
