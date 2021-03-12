@@ -5,7 +5,7 @@ ini_set('display_errors',1);
 include('dbcon2.php');
 //include('db.php');
 
-//POST 값을 읽어온다.
+//POST 값을 읽어온다. 
 $bicycleNumber=isset($_POST['bicycleNumber']) ? $_POST['bicycleNumber'] : '';
 $android = strpos($_SERVER['HTTP_USER_AGENT'], "Android");
 
