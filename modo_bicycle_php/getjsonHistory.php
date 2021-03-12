@@ -9,7 +9,6 @@ include('dbcon2.php');
 $userID=isset($_POST['userID']) ? $_POST['userID'] : '';
 $android = strpos($_SERVER['HTTP_USER_AGENT'], "Android");
 
-
 if ($userID != "" ){
 
     $sql="SELECT * FROM history WHERE userID='$userID'";
