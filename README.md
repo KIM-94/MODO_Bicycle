@@ -42,5 +42,5 @@
 
 
 ## 📐 ARCHITECTURE
-<img src="/img/img10.jpg"/>
+<img src="/img/img10.png"/>
 
