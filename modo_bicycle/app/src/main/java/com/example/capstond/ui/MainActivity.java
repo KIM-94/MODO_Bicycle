@@ -21,6 +21,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.capstond.GetParams.test_param;
+import com.example.capstond.PostParams.signin_param;
 import com.example.capstond.service.GpsTracker;
 import com.example.capstond.R;
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -86,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // 날씨 조회
-        weatherAPI();
-
+//        weatherAPI();
+        testAPI();
 
         // lottie 설정
         LottieAnimationView animationView1 = findViewById(R.id.lottieAnimView1);
@@ -104,7 +106,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         Intent intent1 = getIntent(); /*데이터 수신*/
-        userID = intent1.getExtras().getString("userID");
+        try {
+            userID = intent1.getExtras().getString("userID", "none");
+        } catch (Exception e) {
+            userID = "none";
+        }
 
 
         mainText = (TextView)findViewById(R.id.textViewMain);
@@ -118,7 +124,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 lottieRefresh.setSpeed(1);
                 lottieRefresh.playAnimation();
-                weatherAPI();
+//                weatherAPI();
+                testAPI();
             }
         });
 
@@ -215,6 +222,76 @@ public class MainActivity extends AppCompatActivity {
         animationView.playAnimation();
         // 시작
         animationView.playAnimation();
+    }
+
+    private void testAPI() {
+        // gps
+        gpsTracker = new GpsTracker(MainActivity.this);
+
+        String url = "http://api.openweathermap.org/data/2.5/weather?lat="+gpsTracker.getLatitude()+"&lon="+gpsTracker.getLongitude()+"&appid="+apiKEY;
+        Log.d(TAG, "testAPI: url - "+url);
+
+        Response.Listener<String> resposneListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d(TAG, "onResponse: "+response);
+                // JSONObject로 변경
+                try {
+                    JSONObject jObject = new JSONObject(response);
+                    Log.d(TAG, "weather response - " + response);
+
+                    Log.d(TAG, "main response - " + jObject.getJSONArray("weather").getJSONObject(0).getString("main"));
+                    Log.d(TAG, "description response - " + jObject.getJSONArray("weather").getJSONObject(0).getString("description"));
+                    Log.d(TAG, "temp response - " + jObject.getJSONObject("main").getString("temp"));
+                    Log.d(TAG, "humidity response - " + jObject.getJSONObject("main").getString("humidity"));
+                    Log.d(TAG, "speed response - " + jObject.getJSONObject("wind").getString("speed"));
+                    Log.d(TAG, "name response - " + jObject.getString("name"));
+
+                    HashMap<String, String> hashMap = new HashMap<>();
+                    hashMap.put(TAG_Weater_4, jObject.getJSONArray("weather").getJSONObject(0).getString("main"));
+                    hashMap.put(TAG_Weater_5, jObject.getJSONArray("weather").getJSONObject(0).getString("description"));
+                    hashMap.put(TAG_Weater_7, Double.toString(Double.parseDouble(jObject.getJSONObject("main").getString("temp"))));
+                    hashMap.put(TAG_Weater_12, Double.toString(Double.parseDouble(jObject.getJSONObject("main").getString("humidity"))));
+                    hashMap.put(TAG_Weater_13, Double.toString(Double.parseDouble(jObject.getJSONObject("wind").getString("speed"))));
+                    hashMap.put(TAG_Weater_14, jObject.getString("name"));
+
+                    String get_main = jObject.getJSONArray("weather").getJSONObject(0).getString("main");
+                    String get_description = jObject.getJSONArray("weather").getJSONObject(0).getString("description");
+                    String get_temp = Double.toString(Math.round(Double.parseDouble(jObject.getJSONObject("main").getString("temp")) - 273 ));
+                    String get_location = jObject.getString("name");
+
+                    // lottie 설정
+                    LottieAnimationView animationView0 = findViewById(R.id.lottieAnimView0);
+                    setUpSunny_WetherAnimation(animationView0, get_description);
+
+                    TextView textViewWeater1 = (TextView)findViewById(R.id.textViewWeater1);
+                    textViewWeater1.setText(get_temp + "℃" + " / " + get_description);
+
+                    TextView textViewWeater2 = (TextView)findViewById(R.id.textViewWeater2);
+                    textViewWeater2.setText("현재 위치 - "+get_location);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Log.d(TAG, "onResponse: exception");
+                }
+                return;
+            }
+        };
+
+        Response.ErrorListener errorListener = new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),"로그인 처리시 에러발생!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        };
+
+        // Volley 로 회원양식 웹으로 전송
+        test_param registerRequest = new test_param(url,resposneListener,errorListener);
+        registerRequest.setShouldCache(false);
+
+        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+        queue.add(registerRequest);
     }
 
     private void weatherAPI() {
